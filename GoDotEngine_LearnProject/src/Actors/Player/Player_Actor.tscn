@@ -18,8 +18,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -9 )
 frames = ExtResource( 1 )
 animation = "Idlle"
-frame = 2
-playing = true
+frame = 1
 
 [node name="ShadowSprite" type="Sprite" parent="AnimationSprite"]
 modulate = Color( 1, 1, 1, 0.498039 )
