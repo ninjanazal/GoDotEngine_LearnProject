@@ -1,0 +1,186 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Assets/UI/Buttons/playBtn_atlastexture.tres" type="Texture" id=1]
+[ext_resource path="res://src/Assets/UI/Logo/SlotGame_Logo.png" type="Texture" id=2]
+[ext_resource path="res://src/Assets/UI/Buttons/pauseBtn_atlastexture.tres" type="Texture" id=3]
+
+[node name="UI_Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header_Container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.197222
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header_Container"]
+margin_right = 1280.0
+margin_bottom = 141.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="GameLogo" type="TextureRect" parent="Header_Container/HBoxContainer"]
+margin_left = 160.0
+margin_right = 1120.0
+margin_bottom = 141.0
+rect_min_size = Vector2( 960, 0 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Footer_Container" type="MarginContainer" parent="."]
+anchor_top = 0.861111
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Footer_Background" type="ColorRect" parent="Footer_Container"]
+margin_left = 10.0
+margin_right = 1270.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.913725, 0.913725, 0.913725, 0.501961 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Footer_Container"]
+margin_left = 10.0
+margin_right = 1270.0
+margin_bottom = 85.0
+custom_constants/separation = 15
+
+[node name="Credits_Container" type="VBoxContainer" parent="Footer_Container/HBoxContainer"]
+margin_right = 231.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Credits_Label" type="Label" parent="Footer_Container/HBoxContainer/Credits_Container"]
+margin_right = 231.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credits"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsValue_ColorRect" type="ColorRect" parent="Footer_Container/HBoxContainer/Credits_Container"]
+margin_top = 44.0
+margin_right = 231.0
+margin_bottom = 85.0
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="CreditsValue_Label" type="Label" parent="Footer_Container/HBoxContainer/Credits_Container/CreditsValue_ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 7
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100000
+"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BetGroup_Color" type="ColorRect" parent="Footer_Container/HBoxContainer"]
+margin_left = 246.0
+margin_right = 1014.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 768, 0 )
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Footer_Container/HBoxContainer/BetGroup_Color"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play_ColorRect" type="ColorRect" parent="Footer_Container/HBoxContainer"]
+margin_left = 1029.0
+margin_right = 1260.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.533333, 0.980392, 0.698039, 1 )
+
+[node name="Pause_Button" type="TextureButton" parent="Footer_Container/HBoxContainer/Play_ColorRect"]
+anchor_top = 0.529412
+anchor_right = 0.17316
+anchor_bottom = 1.0
+margin_top = -3.8147e-06
+rect_min_size = Vector2( 40, 40 )
+disabled = true
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Play_Button" type="TextureButton" parent="Footer_Container/HBoxContainer/Play_ColorRect"]
+anchor_left = 0.134146
+anchor_top = -4.48788e-08
+anchor_right = 0.51077
+anchor_bottom = 1.0
+margin_left = -5.53131e-05
+margin_top = 3.8147e-06
+margin_right = -5.34058e-05
+margin_bottom = 7.62939e-06
+rect_min_size = Vector2( 0, 85 )
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AutoPlay_Container" type="VBoxContainer" parent="Footer_Container/HBoxContainer/Play_ColorRect"]
+anchor_left = 0.558442
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AutoPlay_Label" type="Label" parent="Footer_Container/HBoxContainer/Play_ColorRect/AutoPlay_Container"]
+margin_top = 13.0
+margin_right = 101.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 0, 30 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Auto Play"
+align = 1
+valign = 1
+
+[node name="AutoPlay_Value" type="SpinBox" parent="Footer_Container/HBoxContainer/Play_ColorRect/AutoPlay_Container"]
+margin_top = 47.0
+margin_right = 101.0
+margin_bottom = 71.0
+max_value = 1000.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

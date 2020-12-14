@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buttons.png-996e5afd92cd0fb2207a601a85db87be.stex"
+path="res://.import/SlotGame_Logo.png-6bc3322c7ade48eb203bfe79746cc65d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Assets/UI/buttons.png"
-dest_files=[ "res://.import/buttons.png-996e5afd92cd0fb2207a601a85db87be.stex" ]
+source_file="res://src/Assets/UI/Logo/SlotGame_Logo.png"
+dest_files=[ "res://.import/SlotGame_Logo.png-6bc3322c7ade48eb203bfe79746cc65d.stex" ]
 
 [params]
 
@@ -31,4 +31,4 @@ process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false
-svg/scale=1.0
+svg/scale=0.3

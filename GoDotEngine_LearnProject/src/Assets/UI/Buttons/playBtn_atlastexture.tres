@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/buttons.png-279455588754e9cf3c0ce89dda978135.stex"
+
+[resource]
+flags = 4
+atlas = SubResource( 1 )
+region = Rect2( 6, 4, 264, 264 )
