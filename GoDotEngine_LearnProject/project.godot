@@ -16,7 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="GoDotEngine_LearnProject"
+run/main_scene="res://src/Scenes/root_Scene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 
