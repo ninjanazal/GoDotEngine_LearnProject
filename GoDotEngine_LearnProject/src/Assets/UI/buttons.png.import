@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shadow_2.png-be66760d111a90ed200a7f010a641753.stex"
+path="res://.import/buttons.png-996e5afd92cd0fb2207a601a85db87be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Assets/PlayerSprite/shadow_2.png"
-dest_files=[ "res://.import/shadow_2.png-be66760d111a90ed200a7f010a641753.stex" ]
+source_file="res://src/Assets/UI/buttons.png"
+dest_files=[ "res://.import/buttons.png-996e5afd92cd0fb2207a601a85db87be.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
