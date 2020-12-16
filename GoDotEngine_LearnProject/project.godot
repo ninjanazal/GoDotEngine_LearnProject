@@ -17,7 +17,8 @@ _global_script_class_icons={
 
 config/name="GoDotEngine_LearnProject"
 run/main_scene="res://src/Scenes/root_Scene.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://src/Assets/UI/Logo/SlotGame_Logo.png"
+config/icon="res://src/Assets/UI/Logo/SlotGame_Logo.png"
 
 [display]
 
