@@ -1,8 +1,7 @@
 extends Node
 
 enum CAMSTATE {CENTER_0, GAMEVIEW_1}
-
-var _main_camera = null setget main_camera_set, main_camera_get
+var _main_camera = null setget main_camera_set, main_camera
 
 func main_camera_set(cam: Node2D) -> bool:
 	if !cam : return false	
@@ -10,5 +9,5 @@ func main_camera_set(cam: Node2D) -> bool:
 	print("Main camera Registed")
 	return true
 
-func main_camera_get() -> Node2D:
+func main_camera() -> Node2D:
 	return _main_camera
