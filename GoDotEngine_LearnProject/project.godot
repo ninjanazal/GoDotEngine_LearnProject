@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "CameraController",
+"language": "GDScript",
+"path": "res://src/Scripts/camera/camera_controller.gd"
+} ]
 _global_script_class_icons={
-
+"CameraController": ""
 }
 
 [application]
@@ -19,6 +24,10 @@ config/name="GoDotEngine_LearnProject"
 run/main_scene="res://src/Scenes/root_Scene.tscn"
 boot_splash/image="res://src/Assets/UI/Logo/SlotGame_Logo.png"
 config/icon="res://src/Assets/UI/Logo/SlotGame_Logo.png"
+
+[autoload]
+
+GlobalCamera="*res://src/Scripts/camera/Camera.gd"
 
 [display]
 

@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="camera_node" type="Node2D"]
+
+[node name="target_position" type="Position2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="target_position"]
+editor_draw_limits = true
+editor_draw_drag_margin = true
