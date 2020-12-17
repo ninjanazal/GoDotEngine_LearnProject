@@ -39,7 +39,6 @@ config/icon="res://src/Assets/UI/Logo/SlotGame_Logo.png"
 
 [autoload]
 
-GlobalCamera="*res://src/Scripts/cameraScripts/Camera.gd"
 GlobalFunctions="*res://src/Scripts/GlobalScripts/GlobalFunctions.gd"
 
 [display]

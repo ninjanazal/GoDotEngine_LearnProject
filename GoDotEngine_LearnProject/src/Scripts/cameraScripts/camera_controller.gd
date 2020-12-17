@@ -2,7 +2,6 @@ extends Node
 class_name CameraController
 
 export (NodePath) var cam_path = null
-
 var _cam_target : Position2D = null
 
 onready var _center_position = Vector2(
@@ -26,7 +25,8 @@ func _validate_path():
 	var _camera_node = _cam_target.get_child(0)
 	_camera_node._set_current(true)
 	# Regist this node as main Camera on global variable
-	GlobalCamera.main_camera_set(self.get_node("."))
+	GlobalFunctions.main_camera_set(self.get_path())
+	print(get_node(GlobalFunctions.main_camera()).name)
 
 
 func _center_cam():	
@@ -36,9 +36,9 @@ func _center_cam():
 # Set Camera State
 func _set_camera_state(camState):
 	match camState:
-		GlobalCamera.CAMSTATE.CENTER_0:
+		GlobalFunctions.CAMSTATE.CENTER_0:
 			_center_cam()
-		GlobalCamera.CAMSTATE.GAMEVIEW_1:
+		GlobalFunctions.CAMSTATE.GAMEVIEW_1:
 			return
 
 # Get camera State

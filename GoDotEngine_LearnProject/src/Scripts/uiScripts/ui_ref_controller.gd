@@ -17,15 +17,27 @@ func bet_amount() -> SpinBox:
 	return get_node(_bet_amount) as SpinBox
 
 # Return ref to the play texture Button 
-func play_btn() -> TextureButton:
-	return get_node(_play_btn) as TextureButton
+func play_btn() -> Button:
+	return get_node(_play_btn) as Button
 
 # Return ref to the auto play texture Button
-func auto_play_btn() -> TextureButton:
-	return get_node(_auto_play_btn) as TextureButton
+func auto_play_btn() -> Button:
+	return get_node(_auto_play_btn) as Button
 
 func add_credits_btn() -> Button:
 	return get_node(_add_credits_btn) as Button
 
 func remove_credits_btn() -> Button:
 	return get_node(_remove_credits_btn) as Button
+
+func change_interactables_state(state : bool):
+	play_btn().set_disabled(!state)
+	auto_play_btn().set_disabled(!state)
+	add_credits_btn().set_disabled(!state)
+	remove_credits_btn().set_disabled(!state)
+	bet_amount().set_editable(state)
+
+func set_min_value(value : int):
+	bet_amount().set_min(value)
+	bet_amount().set_step(value)
+	bet_amount().set_value(value)
