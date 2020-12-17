@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://src/Scripts/cameraScripts/camera_controller.gd"
 }, {
 "base": "Node",
+"class": "UiRef",
+"language": "GDScript",
+"path": "res://src/Scripts/uiScripts/ui_ref_controller.gd"
+}, {
+"base": "Node",
 "class": "player_status",
 "language": "GDScript",
 "path": "res://src/Scripts/playerScripts/playerStatus.gd"
 } ]
 _global_script_class_icons={
 "CameraController": "",
+"UiRef": "",
 "player_status": ""
 }
 

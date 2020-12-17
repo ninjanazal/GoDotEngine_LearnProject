@@ -22,7 +22,7 @@ func _validate_path():
 		return
 		
 	_cam_target = get_node(NodePath(cam_path)).get_child(0)
-	print("Valid camera path! {name}".format({"name":_cam_target.get_class()}))
+	
 	var _camera_node = _cam_target.get_child(0)
 	_camera_node._set_current(true)
 	# Regist this node as main Camera on global variable

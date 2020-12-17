@@ -1,5 +1,4 @@
 extends Node
-
 class Player:
 	var _credits : int = 0 setget ,get_credits
 	
@@ -28,3 +27,4 @@ func change_credits(amount : int):
 
 func get_current_credits()-> int:
 	return _current_player.get_credits()
+
