@@ -12,10 +12,16 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "CameraController",
 "language": "GDScript",
-"path": "res://src/Scripts/camera/camera_controller.gd"
+"path": "res://src/Scripts/cameraScripts/camera_controller.gd"
+}, {
+"base": "Node",
+"class": "player_status",
+"language": "GDScript",
+"path": "res://src/Scripts/playerScripts/playerStatus.gd"
 } ]
 _global_script_class_icons={
-"CameraController": ""
+"CameraController": "",
+"player_status": ""
 }
 
 [application]
@@ -27,7 +33,8 @@ config/icon="res://src/Assets/UI/Logo/SlotGame_Logo.png"
 
 [autoload]
 
-GlobalCamera="*res://src/Scripts/camera/Camera.gd"
+GlobalCamera="*res://src/Scripts/cameraScripts/Camera.gd"
+GlobalFunctions="*res://src/Scripts/GlobalScripts/GlobalFunctions.gd"
 
 [display]
 

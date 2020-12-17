@@ -1,7 +1,8 @@
 extends Node
 class_name CameraController
 
-export(NodePath) var cam_path = null
+export (NodePath) var cam_path = null
+
 var _cam_target : Position2D = null
 
 onready var _center_position = Vector2(
@@ -9,27 +10,28 @@ onready var _center_position = Vector2(
 
 
 func _ready():
-	# Regist this node as main Camera on global variable
-	GlobalCamera.main_camera_set(self.get_node("."))
-	
 	_validate_path()
 	_center_cam()
+
 
 # Evaluate the path and verifies values
 func _validate_path():
 		
 	if  cam_path.is_empty() :
-		print("Camera path not valid")
-		get_tree().quit()
+		GlobalFunctions.CloseApp("cam_path not valid")
 		return
 		
 	_cam_target = get_node(NodePath(cam_path)).get_child(0)
 	print("Valid camera path! {name}".format({"name":_cam_target.get_class()}))
 	var _camera_node = _cam_target.get_child(0)
 	_camera_node._set_current(true)
+	# Regist this node as main Camera on global variable
+	GlobalCamera.main_camera_set(self.get_node("."))
+
 
 func _center_cam():	
 	_cam_target.set_position(_center_position)
+
 
 # Set Camera State
 func _set_camera_state(camState):
