@@ -28,15 +28,15 @@ __meta__ = {
 }
 
 [node name="h_box_container_header" type="HBoxContainer" parent="header_container"]
-margin_right = 1280.0
-margin_bottom = 141.0
+margin_right = 1024.0
+margin_bottom = 113.0
 custom_constants/separation = 10
 alignment = 1
 
 [node name="game_logo" type="TextureRect" parent="header_container/h_box_container_header"]
-margin_left = 160.0
-margin_right = 1120.0
-margin_bottom = 141.0
+margin_left = 32.0
+margin_right = 992.0
+margin_bottom = 113.0
 rect_min_size = Vector2( 960, 0 )
 texture = ExtResource( 2 )
 expand = true
@@ -59,28 +59,28 @@ __meta__ = {
 
 [node name="footer_background" type="ColorRect" parent="footer_container"]
 margin_left = 10.0
-margin_right = 1270.0
-margin_bottom = 85.0
+margin_right = 1014.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.913725, 0.913725, 0.913725, 0.501961 )
 
 [node name="h_box_container_footer" type="HBoxContainer" parent="footer_container"]
 margin_left = 10.0
-margin_right = 1270.0
-margin_bottom = 85.0
+margin_right = 1014.0
+margin_bottom = 65.0
 custom_constants/separation = 15
 
 [node name="credits_container" type="VBoxContainer" parent="footer_container/h_box_container_footer"]
-margin_right = 231.0
-margin_bottom = 85.0
+margin_right = 103.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="credits_label" type="Label" parent="footer_container/h_box_container_footer/credits_container"]
-margin_right = 231.0
-margin_bottom = 40.0
+margin_right = 103.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
@@ -93,9 +93,9 @@ __meta__ = {
 }
 
 [node name="credits_value_color_rect" type="ColorRect" parent="footer_container/h_box_container_footer/credits_container"]
-margin_top = 44.0
-margin_right = 231.0
-margin_bottom = 85.0
+margin_top = 34.0
+margin_right = 103.0
+margin_bottom = 65.0
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 1 )
 
@@ -113,9 +113,9 @@ __meta__ = {
 }
 
 [node name="betgroup_color" type="ColorRect" parent="footer_container/h_box_container_footer"]
-margin_left = 246.0
-margin_right = 1014.0
-margin_bottom = 85.0
+margin_left = 118.0
+margin_right = 886.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 768, 0 )
 size_flags_vertical = 3
 
@@ -130,14 +130,14 @@ __meta__ = {
 
 [node name="inser_container" type="HBoxContainer" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center"]
 margin_right = 228.0
-margin_bottom = 85.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="add_credits_btn" type="Button" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center/inser_container"]
 modulate = Color( 0.00784314, 1, 0, 1 )
 margin_right = 112.0
-margin_bottom = 85.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
@@ -147,7 +147,7 @@ text = "ADD"
 modulate = Color( 0.956863, 0.486275, 0.32549, 1 )
 margin_left = 116.0
 margin_right = 228.0
-margin_bottom = 85.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
 text = "REMOVE"
@@ -155,16 +155,16 @@ text = "REMOVE"
 [node name="bet_container" type="VBoxContainer" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center"]
 margin_left = 273.0
 margin_right = 473.0
-margin_bottom = 85.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_vertical = 3
 custom_constants/separation = 10
 alignment = 1
 
 [node name="bet_label" type="Label" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center/bet_container"]
-margin_top = 13.0
+margin_top = 3.0
 margin_right = 200.0
-margin_bottom = 38.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 0, 25 )
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -176,9 +176,9 @@ align = 1
 valign = 1
 
 [node name="bet_amout_spin_edit" type="SpinBox" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center/bet_container"]
-margin_top = 48.0
+margin_top = 38.0
 margin_right = 200.0
-margin_bottom = 72.0
+margin_bottom = 62.0
 size_flags_horizontal = 3
 step = 0.2
 align = 1
@@ -186,15 +186,15 @@ align = 1
 [node name="win_container" type="VBoxContainer" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center"]
 margin_left = 518.0
 margin_right = 768.0
-margin_bottom = 85.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 250, 0 )
 custom_constants/separation = 6
 alignment = 1
 
 [node name="win_label" type="Label" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center/win_container"]
-margin_top = 11.0
+margin_top = 1.0
 margin_right = 250.0
-margin_bottom = 36.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 0, 25 )
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.164706, 1, 0.0196078, 1 )
@@ -207,9 +207,9 @@ align = 1
 valign = 1
 
 [node name="win_value_label" type="Label" parent="footer_container/h_box_container_footer/betgroup_color/h_box_container_center/win_container"]
-margin_top = 42.0
+margin_top = 32.0
 margin_right = 250.0
-margin_bottom = 73.0
+margin_bottom = 63.0
 rect_min_size = Vector2( 0, 25 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 6 )
@@ -222,9 +222,9 @@ align = 1
 valign = 1
 
 [node name="Play_ColorRect" type="ColorRect" parent="footer_container/h_box_container_footer"]
-margin_left = 1029.0
-margin_right = 1260.0
-margin_bottom = 85.0
+margin_left = 901.0
+margin_right = 1004.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.533333, 0.980392, 0.698039, 1 )
@@ -238,7 +238,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="footer_container/h_box_container_footer/Play_ColorRect/HBoxContainer"]
 margin_right = 125.0
-margin_bottom = 85.0
+margin_bottom = 78.0
 rect_min_size = Vector2( 125, 0 )
 size_flags_vertical = 3
 
@@ -256,7 +256,7 @@ valign = 1
 modulate = Color( 0.505882, 0.4, 1, 1 )
 margin_top = 28.0
 margin_right = 125.0
-margin_bottom = 85.0
+margin_bottom = 78.0
 rect_min_size = Vector2( 70, 50 )
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 6 )
@@ -266,7 +266,7 @@ text = "PLAY!"
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 129.0
 margin_right = 129.0
-margin_bottom = 85.0
+margin_bottom = 78.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -274,13 +274,13 @@ __meta__ = {
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="footer_container/h_box_container_footer/Play_ColorRect/HBoxContainer"]
 margin_left = 133.0
-margin_right = 231.0
-margin_bottom = 85.0
+margin_right = 203.0
+margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label2" type="Label" parent="footer_container/h_box_container_footer/Play_ColorRect/HBoxContainer/VBoxContainer2"]
-margin_right = 98.0
+margin_right = 70.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 0, 0.537255, 1 )
@@ -292,8 +292,8 @@ valign = 1
 [node name="auto_play_btn" type="Button" parent="footer_container/h_box_container_footer/Play_ColorRect/HBoxContainer/VBoxContainer2"]
 modulate = Color( 1, 0.415686, 0.976471, 1 )
 margin_top = 28.0
-margin_right = 98.0
-margin_bottom = 85.0
+margin_right = 70.0
+margin_bottom = 78.0
 rect_min_size = Vector2( 70, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -29,6 +29,9 @@ func change_credits(amount : int):
 	_current_player.add_credits(amount)
 	emit_signal("creadits_changed")
 
+# Number of rounds can play based on the bet amount
+func can_play_rounds(bet_amount : int):
+	return floor(_current_player.get_credits() / float(bet_amount))
 
 # getters
 func get_current_credits()-> int:
