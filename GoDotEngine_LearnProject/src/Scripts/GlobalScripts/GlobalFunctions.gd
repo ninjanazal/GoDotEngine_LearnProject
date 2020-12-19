@@ -6,7 +6,6 @@ func CloseApp(text: String):
 	get_tree().quit()
 
 # Camera
-enum CAMSTATE {CENTER_0, GAMEVIEW_1}
 onready var _main_camera  setget main_camera_set, main_camera
 
 func main_camera_set(cam: NodePath) -> bool:
@@ -17,3 +16,4 @@ func main_camera_set(cam: NodePath) -> bool:
 
 func main_camera() -> NodePath:
 	return _main_camera
+

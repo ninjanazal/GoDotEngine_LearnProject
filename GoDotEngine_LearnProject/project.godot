@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Scripts/cameraScripts/camera_controller.gd"
 }, {
+"base": "Reference",
+"class": "ConsTypes",
+"language": "GDScript",
+"path": "res://src/Scripts/GlobalScripts/GlobalTypes.gd"
+}, {
 "base": "Node",
 "class": "PopUpController",
 "language": "GDScript",
@@ -24,16 +29,41 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Scripts/uiScripts/ui_ref_controller.gd"
 }, {
+"base": "Node2D",
+"class": "column_controller",
+"language": "GDScript",
+"path": "res://src/Scripts/SlotSystem/column_controller.gd"
+}, {
+"base": "Node2D",
+"class": "column_item",
+"language": "GDScript",
+"path": "res://src/Scripts/SlotSystem/column_item_values.gd"
+}, {
 "base": "Node",
 "class": "player_status",
 "language": "GDScript",
 "path": "res://src/Scripts/playerScripts/playerStatus.gd"
+}, {
+"base": "Resource",
+"class": "slot_item",
+"language": "GDScript",
+"path": "res://src/Scripts/SlotSystem/resource/slot_item.gd"
+}, {
+"base": "Node",
+"class": "slot_system",
+"language": "GDScript",
+"path": "res://src/Scripts/SlotSystem/slot_system.gd"
 } ]
 _global_script_class_icons={
 "CameraController": "",
+"ConsTypes": "",
 "PopUpController": "",
 "UiRef": "",
-"player_status": ""
+"column_controller": "",
+"column_item": "",
+"player_status": "",
+"slot_item": "",
+"slot_system": ""
 }
 
 [application]

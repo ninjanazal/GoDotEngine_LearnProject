@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Assets/Slot/Overlay/slot_background.png" type="Texture" id=1]
 [ext_resource path="res://src/Assets/Slot/Overlay/slot_overlay.png" type="Texture" id=2]
+[ext_resource path="res://src/Scripts/SlotSystem/slot_system.gd" type="Script" id=3]
+[ext_resource path="res://src/Actors/SlotSystem/Column.tscn" type="PackedScene" id=4]
 
 [node name="slot" type="Position2D"]
 position = Vector2( 640, 360 )
+script = ExtResource( 3 )
+_column_actor = ExtResource( 4 )
+_column_width = 225.0
 
 [node name="node_foreground" type="Sprite" parent="."]
 texture = ExtResource( 1 )

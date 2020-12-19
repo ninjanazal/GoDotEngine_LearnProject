@@ -15,6 +15,7 @@ func _ready():
 	
 	_ui_view.credits().set_text(str(_player_controller.get_current_credits()))
 	_ui_view.set_min_value(_player_controller.get_min_credit())
+	_ui_view.set_max_value(_player_controller.get_current_credits())
 	
 	_set_signals_responses()
 	print("UI Loaded")
@@ -24,7 +25,7 @@ func _ready():
 # on credits value changed
 func on_credits_value_changed():
 	_ui_view.credits().set_text(str(_player_controller.get_current_credits()))
-
+	_ui_view.set_max_value(_player_controller.get_current_credits())
 
 #signals configuration
 func _set_signals_responses():

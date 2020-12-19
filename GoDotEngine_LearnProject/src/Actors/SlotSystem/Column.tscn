@@ -1,3 +1,18 @@
-[gd_scene format=2]
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/Scripts/SlotSystem/column_controller.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/watermelon_slot_icon.tres" type="Resource" id=2]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/orange_slot_icon.tres" type="Resource" id=3]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/bigwin_slot_icon.tres" type="Resource" id=4]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/cherry_slot_icon.tres" type="Resource" id=5]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/bar_slot_icon.tres" type="Resource" id=6]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/grape_slot_icon.tres" type="Resource" id=7]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/seven_slot_icon.tres" type="Resource" id=8]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/lemon_slot_icon.tres" type="Resource" id=9]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/banana_slot_icon.tres" type="Resource" id=10]
+[ext_resource path="res://src/Actors/SlotSystem/slot_item_actor.tscn" type="PackedScene" id=11]
 
 [node name="Column" type="Node2D"]
+script = ExtResource( 1 )
+_items_list = [ ExtResource( 10 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 2 ) ]
+slot_icon_actor = ExtResource( 11 )

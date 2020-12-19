@@ -44,3 +44,6 @@ func set_min_value(value : int):
 	bet_amount().set_min(value)
 	bet_amount().set_step(value)
 	bet_amount().set_value(value)
+
+func set_max_value(value : int):
+	bet_amount().set_max(value)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Scripts/SlotSystem/column_item_values.gd" type="Script" id=1]
+
+[node name="slot_item_actor" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="icon_sprite" type="Sprite" parent="."]
