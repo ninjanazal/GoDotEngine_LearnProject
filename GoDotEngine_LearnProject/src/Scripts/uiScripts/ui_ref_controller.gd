@@ -47,3 +47,7 @@ func set_min_value(value : int):
 
 func set_max_value(value : int):
 	bet_amount().set_max(value)
+
+func disable_play_action(value : bool):
+	play_btn().set_disabled(value)
+	auto_play_btn().set_disabled(value)

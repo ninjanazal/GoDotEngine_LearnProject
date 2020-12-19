@@ -1,5 +1,6 @@
 extends Node2D
 class_name column_item
+
 signal move_icon_to(top)
 
 onready var _icon_sprite := get_node("icon_sprite") as Sprite
@@ -21,7 +22,7 @@ func icon_move(amount : float, delta : float):
 func _validate_translaction(down_move : bool):
 	match down_move:
 		true:
-			if self.get_global_position().y + (_icon_sprite.get_rect().size.y / 2) > get_viewport_rect().size.y:
+			if abs(self.get_global_position().y) + (_icon_sprite.get_rect().size.y / 2) > get_viewport_rect().size.y:
 				emit_signal("move_icon_to",true)
 		false:
 			if self.get_global_position().y - (_icon_sprite.get_rect().size.y / 2) < 0:

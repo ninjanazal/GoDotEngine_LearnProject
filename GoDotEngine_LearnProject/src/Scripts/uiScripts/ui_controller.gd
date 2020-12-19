@@ -26,6 +26,9 @@ func _ready():
 func on_credits_value_changed():
 	_ui_view.credits().set_text(str(_player_controller.get_current_credits()))
 	_ui_view.set_max_value(_player_controller.get_current_credits())
+	
+	_ui_view.disable_play_action(_player_controller.get_current_credits() == 0)
+
 
 #signals configuration
 func _set_signals_responses():
@@ -34,6 +37,8 @@ func _set_signals_responses():
 	_ui_view.remove_credits_btn().connect("pressed",_player_controller,"change_credits",[-5])
 	_ui_view.auto_play_btn().connect("pressed",_popup_controller,"on_autoplay_pressed",
 		[autoplay_popup, funcref(_player_controller,"can_play_rounds")])
+	
+	_ui_view.play_btn().connect("pressed", self, "_on_play_confirmed")
 	
 	#player to Ui
 	_player_controller.connect("creadits_changed",self,"on_credits_value_changed")
@@ -46,3 +51,7 @@ func _on_popup_closed():
 func _on_popup_confirmed(value : int):
 	print("exit with value {value}".format({"value": value}))
 	_ui_view.change_interactables_state(true)
+	_on_play_confirmed()
+
+func _on_play_confirmed():
+	print("Start Rolling!")
