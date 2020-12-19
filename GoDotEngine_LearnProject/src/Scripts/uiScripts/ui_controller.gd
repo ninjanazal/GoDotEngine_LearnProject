@@ -1,8 +1,11 @@
 extends Node
 export (NodePath) var ui_root = null
+export (NodePath) var slot_path = null
 export (PackedScene) var autoplay_popup = null
 
 onready var _ui_view := get_node(ui_root) as Control
+onready var _slot_view := get_node(slot_path) as Position2D
+
 onready var _player_controller := get_node("../player_controller") as Node
 onready var _popup_controller := get_node("popup_controller") as Node
 
@@ -55,3 +58,4 @@ func _on_popup_confirmed(value : int):
 
 func _on_play_confirmed():
 	print("Start Rolling!")
+	_slot_view.start_spinning_columns()

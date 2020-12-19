@@ -4,11 +4,8 @@ class_name PopUpController
 var _exposed_popup = null
 var _ui_view : Control = null
 
-
 func start(ui_view : NodePath):
-	print(ui_view)
 	_ui_view = get_node(ui_view)
-
 
 # popUp
 #on auto play pressed

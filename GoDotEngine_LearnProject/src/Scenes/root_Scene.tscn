@@ -30,6 +30,7 @@ script = ExtResource( 5 )
 [node name="ui_controller" type="Node" parent="Controller"]
 script = ExtResource( 4 )
 ui_root = NodePath("../../View/CanvasLayer/UI_view")
+slot_path = NodePath("../../View/slot")
 autoplay_popup = ExtResource( 6 )
 
 [node name="popup_controller" type="Node" parent="Controller/ui_controller"]
