@@ -7,4 +7,4 @@
 script = ExtResource( 1 )
 _icon_texture = ExtResource( 2 )
 _icon_type = 7
-_icon_percent = 10.0
+_icon_entrance_count = 10.0

@@ -9,7 +9,8 @@
 position = Vector2( 640, 360 )
 script = ExtResource( 3 )
 _column_actor = ExtResource( 4 )
-_column_width = 225.0
+_column_width = 340.0
+_column_margin = 40.0
 
 [node name="node_foreground" type="Sprite" parent="."]
 texture = ExtResource( 1 )
