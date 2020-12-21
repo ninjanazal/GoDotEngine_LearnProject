@@ -37,6 +37,9 @@ func _do_wheel():
 func start_spinning():
 	_current_speed = randf() * min_max_column_speed.y * 10.0 + min_max_column_speed.x * 10.0
 
+func stop_spinning():
+	_current_speed = 0
+
 func _on_icon_replace(item : Node2D):
 	var called_by_index = _current_wheel.find(item)
 	var next_index = called_by_index + 1 if (called_by_index + 1 < _current_wheel.size()) else 0

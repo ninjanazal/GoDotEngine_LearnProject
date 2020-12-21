@@ -40,6 +40,11 @@ func change_interactables_state(state : bool):
 	remove_credits_btn().set_disabled(!state)
 	bet_amount().set_editable(state)
 
+func change_all_off_without_play_with_name(name : String):
+	change_interactables_state(false)
+	play_btn().set_text(name)
+	play_btn().set_disabled(false)
+
 func set_min_value(value : int):
 	bet_amount().set_min(value)
 	bet_amount().set_step(value)

@@ -43,6 +43,10 @@ func _set_signals_responses():
 	
 	_ui_view.play_btn().connect("pressed", self, "_on_play_confirmed")
 	
+	# slot
+	_slot_view.connect("slot_spinning", self, "_on_slot_spinning")
+	_slot_view.connect("slot_stoped", self, "_on_slot_stoped")
+	
 	#player to Ui
 	_player_controller.connect("creadits_changed",self,"on_credits_value_changed")
 
@@ -57,5 +61,16 @@ func _on_popup_confirmed(value : int):
 	_on_play_confirmed()
 
 func _on_play_confirmed():
-	print("Start Rolling!")
-	_slot_view.start_spinning_columns()
+	if !_slot_view.isSpinning():
+		print("Start Rolling!")
+		_slot_view.start_spinning_columns()
+	else:
+		_slot_view.force_stop_spinning()
+		print("Forced Stop rolling!")
+
+func _on_slot_spinning():
+	_ui_view.change_all_off_without_play_with_name("Stop!")
+
+func _on_slot_stoped():
+	_ui_view.change_all_off_without_play_with_name("Play!")
+	_ui_view.change_interactables_state(true)
