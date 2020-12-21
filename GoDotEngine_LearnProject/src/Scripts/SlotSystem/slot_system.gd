@@ -28,11 +28,11 @@ func isSpinning() -> bool:
 
 # called for start spinning
 func start_spinning_columns():
-	emit_signal("slot_spinning")
 	for column in _columns:
 		column.start_spinning()
 		yield(get_tree().create_timer(randf()*1.0 + 0.5) ,"timeout")
 	_is_slot_spinning = true
+	emit_signal("slot_spinning")
 	print("Slot Spining!")
 
 
@@ -40,5 +40,9 @@ func force_stop_spinning():
 	_is_slot_spinning = false
 	for column in _columns:
 		column.stop_spinning()
+	print("Slot forced stoping")
+
+func waiting_for_columns_stop():
+	for column in _columns:
+		yield(column, "column_stoped")
 	emit_signal("slot_stoped")
-	print("Slot forced stop")

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Scripts/SlotSystem/column_controller.gd" type="Script" id=1]
 [ext_resource path="res://src/Actors/SlotSystem/slot_item_actor.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 1 )
 
 [node name="Column" type="Node2D"]
 script = ExtResource( 1 )
@@ -9,3 +12,10 @@ slot_icon_actor = ExtResource( 11 )
 icon_percent_spacing = 0.7
 column_size = 40
 min_max_column_speed = Vector2( 150, 200 )
+approach_speed = 100.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )

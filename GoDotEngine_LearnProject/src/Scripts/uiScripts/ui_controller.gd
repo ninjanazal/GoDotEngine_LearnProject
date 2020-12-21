@@ -61,6 +61,7 @@ func _on_popup_confirmed(value : int):
 	_on_play_confirmed()
 
 func _on_play_confirmed():
+	_ui_view.change_interactables_state(false)
 	if !_slot_view.isSpinning():
 		print("Start Rolling!")
 		_slot_view.start_spinning_columns()
