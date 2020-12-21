@@ -8,7 +8,7 @@ export (float, 0, 1) var icon_percent_spacing
 export (int,10 , 40, 1) var column_size = 10
 export (Vector2) var min_max_column_speed = Vector2(100 , 80)
 export (float) var _drag_force = 5.0
-export (float, 20, 100, 1) var approach_speed = 60
+export (float, 100, 200, 1) var approach_speed = 60
 
 var _column_width : float
 var _current_wheel : Array = []

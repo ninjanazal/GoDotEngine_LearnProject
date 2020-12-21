@@ -13,7 +13,7 @@ func init(texture : Texture, type : int, start_position : Vector2, parent : Node
 	_icon_type = type
 	_icon_sprite.set_texture(texture)
 	self.set_position(start_position)
-	_icon_collision_shape.shape.set_extents(Vector2(texture.get_width()*0.5,texture.get_height()*0.5))
+	_icon_collision_shape.shape.set_extents(Vector2(texture.get_width() / 2, texture.get_height() / 2))
 
 func icon_move(amount : float):
 	self.set_position(self.get_position() + Vector2.DOWN * amount * self.get_process_delta_time())
