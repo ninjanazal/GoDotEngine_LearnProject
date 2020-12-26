@@ -10,7 +10,9 @@ export (float) var _column_width = 320.0
 export (float) var _column_margin = 5.0
 
 var _columns : Array = []
+var _current_sprinnings : int = 0
 var _is_slot_spinning = false setget ,isSpinning
+
 
 func _ready():
 	_generate_columns()

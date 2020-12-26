@@ -9,7 +9,6 @@ onready var _slot_view := get_node(slot_path) as Position2D
 onready var _player_controller := get_node("../player_controller") as Node
 onready var _popup_controller := get_node("popup_controller") as Node
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Loading UI Controller")
@@ -58,6 +57,7 @@ func _on_popup_closed():
 func _on_popup_confirmed(value : int):
 	print("exit with value {value}".format({"value": value}))
 	_ui_view.change_interactables_state(true)
+
 	_on_play_confirmed()
 
 func _on_play_confirmed():
