@@ -16,4 +16,3 @@ func main_camera_set(cam: NodePath) -> bool:
 
 func main_camera() -> NodePath:
 	return _main_camera
-

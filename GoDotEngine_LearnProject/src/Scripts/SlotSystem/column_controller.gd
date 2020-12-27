@@ -44,7 +44,7 @@ func _do_wheel():
 func start_spinning():
 	_current_speed = randf() * min_max_column_speed.y * 10.0 + min_max_column_speed.x * 10.0
 
-func stop_spinning():
+func stop_spinning_at(value : int):
 	while _current_speed > approach_speed:
 		_current_speed -= _drag_force
 		yield(get_tree(), "idle_frame")

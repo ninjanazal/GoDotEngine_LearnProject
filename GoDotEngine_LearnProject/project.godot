@@ -40,9 +40,19 @@ _global_script_classes=[ {
 "path": "res://src/Scripts/SlotSystem/column_item_values.gd"
 }, {
 "base": "Node",
+"class": "game_controller",
+"language": "GDScript",
+"path": "res://src/Scripts/MainController/main_controller.gd"
+}, {
+"base": "Node",
 "class": "player_status",
 "language": "GDScript",
 "path": "res://src/Scripts/playerScripts/playerStatus.gd"
+}, {
+"base": "Resource",
+"class": "slot_group",
+"language": "GDScript",
+"path": "res://src/Scripts/SlotSystem/resource/slot_item_group.gd"
 }, {
 "base": "Resource",
 "class": "slot_item",
@@ -61,7 +71,9 @@ _global_script_class_icons={
 "UiRef": "",
 "column_controller": "",
 "column_item": "",
+"game_controller": "",
 "player_status": "",
+"slot_group": "",
 "slot_item": "",
 "slot_system": ""
 }

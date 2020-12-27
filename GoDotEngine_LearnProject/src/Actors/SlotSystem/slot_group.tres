@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=11 format=2]
+
+[ext_resource path="res://src/Scripts/SlotSystem/resource/slot_item_group.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/cherry_slot_icon.tres" type="Resource" id=2]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/orange_slot_icon.tres" type="Resource" id=3]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/bigwin_slot_icon.tres" type="Resource" id=4]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/seven_slot_icon.tres" type="Resource" id=5]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/lemon_slot_icon.tres" type="Resource" id=6]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/watermelon_slot_icon.tres" type="Resource" id=7]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/bar_slot_icon.tres" type="Resource" id=8]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/grape_slot_icon.tres" type="Resource" id=9]
+[ext_resource path="res://src/Actors/SlotSystem/slot_icons/banana_slot_icon.tres" type="Resource" id=10]
+
+[resource]
+script = ExtResource( 1 )
+_item_array = [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ) ]

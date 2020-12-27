@@ -1,4 +1,5 @@
 extends Node
+
 class Player:
 	var _credits : int = 0 setget ,get_credits
 		
@@ -36,7 +37,6 @@ func can_play_rounds(bet_amount : int):
 # getters
 func get_current_credits()-> int:
 	return _current_player.get_credits()
-
 
 func get_min_credit() -> int:
 	return _min_bet_value

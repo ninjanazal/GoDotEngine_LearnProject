@@ -1,4 +1,5 @@
 extends Node
+
 export (NodePath) var ui_root = null
 export (NodePath) var slot_path = null
 export (PackedScene) var autoplay_popup = null
@@ -40,14 +41,29 @@ func _set_signals_responses():
 	_ui_view.auto_play_btn().connect("pressed",_popup_controller,"on_autoplay_pressed",
 		[autoplay_popup, funcref(_player_controller,"can_play_rounds")])
 	
-	_ui_view.play_btn().connect("pressed", self, "_on_play_confirmed")
+	_ui_view.play_btn().connect("pressed", self, "_on_play_confirmed", [1])
 	
 	# slot
-	_slot_view.connect("slot_spinning", self, "_on_slot_spinning")
-	_slot_view.connect("slot_stoped", self, "_on_slot_stoped")
+	if _slot_view.connect("slot_stoped", self, "_on_slot_stoped") :
+		 GlobalFunctions.CloseApp("Cant Connect signal on {value}".format({"value":_slot_view.name}))
 	
 	#player to Ui
-	_player_controller.connect("creadits_changed",self,"on_credits_value_changed")
+	if _player_controller.connect("creadits_changed",self,"on_credits_value_changed") :
+		GlobalFunctions.CloseApp("Cant Connect signal")
+	
+	#wait for controller ready
+	_wait_for_main_controller()
+
+
+# wait for signal
+func _wait_for_main_controller():
+	print("Waiting for main controller")
+	_ui_view.change_interactables_state(false)
+	yield(get_parent(),"ready")
+	
+	_ui_view.change_interactables_state(true)
+	print("Controller set and ready")
+
 
 # called when the popup is closed
 func _on_popup_closed():
@@ -58,20 +74,14 @@ func _on_popup_confirmed(value : int):
 	print("exit with value {value}".format({"value": value}))
 	_ui_view.change_interactables_state(true)
 
-	_on_play_confirmed()
+	_on_play_confirmed(value)
 
-func _on_play_confirmed():
+
+func _on_play_confirmed(amount : int):
 	_ui_view.change_interactables_state(false)
-	if !_slot_view.isSpinning():
-		print("Start Rolling!")
-		_slot_view.start_spinning_columns()
-	else:
-		_slot_view.force_stop_spinning()
-		print("Forced Stop rolling!")
+	print("Start Rolling!")
+	_slot_view.start_spinning_columns(amount)
 
-func _on_slot_spinning():
-	_ui_view.change_all_off_without_play_with_name("Stop!")
 
 func _on_slot_stoped():
-	_ui_view.change_all_off_without_play_with_name("Play!")
 	_ui_view.change_interactables_state(true)

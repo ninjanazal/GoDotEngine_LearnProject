@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Actors/UISystem/UI_view_actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Camera/camera_node.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://src/Actors/UISystem/popUps/autoplay_popUp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Scripts/uiScripts/popUps/popup_controller.gd" type="Script" id=7]
 [ext_resource path="res://src/Scenes/slot_scene.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Scripts/MainController/main_controller.gd" type="Script" id=9]
+[ext_resource path="res://src/Actors/SlotSystem/slot_group.tres" type="Resource" id=10]
 
 [node name="root" type="Node"]
 
@@ -23,6 +25,8 @@ layer = 10
 [node name="slot" parent="View" instance=ExtResource( 8 )]
 
 [node name="Controller" type="Node" parent="."]
+script = ExtResource( 9 )
+slot_group = ExtResource( 10 )
 
 [node name="player_controller" type="Node" parent="Controller"]
 script = ExtResource( 5 )
