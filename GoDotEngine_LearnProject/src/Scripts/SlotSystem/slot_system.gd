@@ -1,6 +1,7 @@
 extends Node
 class_name slot_system
 
+signal slot_spining
 signal slot_stoped
 
 export (Resource) var item_list
@@ -36,11 +37,12 @@ func _slot_internal_spin_controller():
 	for column in _columns:
 		column.start_spinning()
 		yield(get_tree().create_timer(randf()*0.75 + 0.25) ,"timeout")
+
 	_is_slot_spinning = true
+	emit_signal("slot_spining")
 	print("Slot Spining!")
 
 # Stop spinning with values
-func stop_slot_on(value : Array, wait_time : float):
-	yield(get_tree().create_timer(wait_time),"timeout")
+func stop_slot_on(value : Array):
 	for i in _columns.size():
 		_columns[i].stop_spinning_at(value[i])

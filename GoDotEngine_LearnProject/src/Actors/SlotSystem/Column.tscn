@@ -12,7 +12,8 @@ slot_icon_actor = ExtResource( 11 )
 icon_percent_spacing = 0.7
 column_size = 40
 min_max_column_speed = Vector2( 150, 200 )
-approach_speed = 200.0
+_drag_force = 15.0
+approach_speed = 600.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

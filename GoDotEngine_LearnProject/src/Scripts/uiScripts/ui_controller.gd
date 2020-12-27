@@ -73,13 +73,13 @@ func _on_popup_closed():
 func _on_popup_confirmed(value : int):
 	print("exit with value {value}".format({"value": value}))
 	_ui_view.change_interactables_state(true)
-
+	
 	_on_play_confirmed(value)
 
 
 func _on_play_confirmed(amount : int):
 	_ui_view.change_interactables_state(false)
-	print("Start Rolling!")
+	print("Start Rolling {times} times!".format({"times":amount}))
 	_slot_view.start_spinning_columns(amount)
 
 

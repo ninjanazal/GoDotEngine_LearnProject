@@ -16,3 +16,10 @@ func main_camera_set(cam: NodePath) -> bool:
 
 func main_camera() -> NodePath:
 	return _main_camera
+
+# Slot Icons
+func slot_item_to_string(items : Array) -> Array:
+	var result_string_array : Array
+	for item in items:
+		result_string_array.append(ConsTypes.kIconType.keys()[item])
+	return result_string_array

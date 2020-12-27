@@ -19,6 +19,9 @@ func icon_move(amount : float):
 	self.set_position(self.get_position() + Vector2.DOWN * amount * self.get_process_delta_time())
 	_validate_translaction()
 
+func icon_force_move(amount : float):
+	self.set_position(self.get_position() + Vector2.DOWN * amount)
+
 # confirm if the icon should be reseted
 func _validate_translaction():
 	if abs(self.get_global_position().y - (_icon_sprite.get_rect().size.y / 2)) > get_viewport_rect().size.y:
