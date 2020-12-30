@@ -11,7 +11,6 @@ export (float) var _column_margin = 5.0
 
 var _columns : Array = []
 var _current_sprinnings : int = 0
-var _is_slot_spinning = false setget ,isSpinning
 
 
 func _ready():
@@ -25,9 +24,6 @@ func _generate_columns():
 		$columns.add_child(current_column)
 		current_column.init(Vector2(i * (_column_width + _column_margin),0),_column_width,item_list.get_group_array())
 
-func isSpinning() -> bool:
-	return _is_slot_spinning
-
 # called for start spinning
 func start_spinning_columns(value : int):
 	_current_sprinnings = value
@@ -37,12 +33,19 @@ func _slot_internal_spin_controller():
 	for column in _columns:
 		column.start_spinning()
 		yield(get_tree().create_timer(randf()*0.75 + 0.25) ,"timeout")
-
-	_is_slot_spinning = true
+	
 	emit_signal("slot_spining")
 	print("Slot Spining!")
+
+# wait for all columns to emit stop confirmation
+func _wait_all_columns_stop(callerInder : int):
+	for column in _columns:
+		if !column.is_stoped(): return
+	
+	print("All columns are stoped")
 
 # Stop spinning with values
 func stop_slot_on(value : Array):
 	for i in _columns.size():
 		_columns[i].stop_spinning_at(value[i])
+		_columns[i].connect("column_stoped" , self, "_wait_all_columns_stop", [i], CONNECT_ONESHOT)

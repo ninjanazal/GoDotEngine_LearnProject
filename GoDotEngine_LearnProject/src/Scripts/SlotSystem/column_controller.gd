@@ -16,6 +16,8 @@ var _entrance_count : Array = []
 var _current_speed : float = 0
 var _items_list : Array = []
 
+var _current_center_type : int = -1 setget ,get_current_center
+
 onready var _collision_shape := get_node("Area2D/CollisionShape2D")
 
 func init(position : Vector2, width : float, list : Array):
@@ -26,6 +28,7 @@ func init(position : Vector2, width : float, list : Array):
 	_collision_shape.shape.set_extents(Vector2(_column_width * 0.5,10))	
 	_do_wheel()
 	
+	_current_center_type = _current_wheel[1].get_type()
 
 func start_spinning():
 	_current_speed = randf() * min_max_column_speed.y * 10.0 + min_max_column_speed.x * 10.0
@@ -36,11 +39,17 @@ func stop_spinning_at(value : int):
 		yield(get_tree(), "idle_frame")
 	_collision_shape.get_parent().connect("area_entered",self,"_item_at_center", [value])
 
+func is_stoped() -> bool:
+	if _current_speed != 0:
+		return false
+	return true
+
+func get_current_center()->int:
+	return _current_center_type
 
 func _physics_process(delta):
 	if _current_speed > 0:
 		_move_column(delta)
-
 
 # create the wheel
 func _do_wheel():
@@ -84,4 +93,5 @@ func _target_on_center(item : Node2D):
 	_current_speed = 0
 	_force_move_column(abs(item.get_position().y))
 	
+	_current_center_type = item.get_type()
 	emit_signal("column_stoped")

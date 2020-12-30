@@ -1,4 +1,4 @@
-"../View/slot"extends Node
+extends Node
 class_name game_controller
 
 export (Resource) var _slot_group
@@ -7,6 +7,7 @@ export (NodePath) var _slot_ui_path
 onready var _slot_ui := get_node(_slot_ui_path)
 
 var _slot_entrances : Array = []
+var _current_result : Array setget ,get_current_result
 
 func _ready():
 	_validate_resource()
@@ -33,8 +34,11 @@ func _on_slot_spinning():
 
 # get spin result combination
 func _get_spin_result() -> Array:
-	var result : Array
 	for i in 3:
-		result.append(_slot_entrances[randi() % _slot_entrances.size()])
-	print(GlobalFunctions.slot_item_to_string(result))
-	return result
+		_current_result.append(_slot_entrances[randi() % _slot_entrances.size()])
+	print(GlobalFunctions.slot_item_to_string(_current_result))
+	return _current_result
+
+#get the current result
+func get_current_result() -> Array:
+	return _current_result
