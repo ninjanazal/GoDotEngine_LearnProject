@@ -12,7 +12,6 @@ class Player:
 	func get_credits() -> int:
 		return _credits
 
-
 class_name player_status
 signal creadits_changed
 

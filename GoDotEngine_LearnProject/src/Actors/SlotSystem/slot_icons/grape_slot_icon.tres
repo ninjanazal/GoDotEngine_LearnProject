@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 _icon_texture = ExtResource( 2 )
 _icon_type = 4
 _icon_entrance_count = 10.0
+_item_multiplier = 0.4

@@ -30,7 +30,8 @@ func on_credits_value_changed():
 	_ui_view.credits().set_text(str(_player_controller.get_current_credits()))
 	_ui_view.set_max_value(_player_controller.get_current_credits())
 	
-	_ui_view.disable_play_action(_player_controller.get_current_credits() == 0)
+	if(_slot_view.get_spin_count() == 0):
+		_ui_view.disable_play_action(_player_controller.get_current_credits() == 0)
 
 
 #signals configuration
@@ -43,9 +44,6 @@ func _set_signals_responses():
 	
 	_ui_view.play_btn().connect("pressed", self, "_on_play_confirmed", [1])
 	
-	# slot
-	if _slot_view.connect("slot_stoped", self, "_on_slot_stoped") :
-		 GlobalFunctions.CloseApp("Cant Connect signal on {value}".format({"value":_slot_view.name}))
 	
 	#player to Ui
 	if _player_controller.connect("creadits_changed",self,"on_credits_value_changed") :
@@ -72,7 +70,6 @@ func _on_popup_closed():
 # called when the popup exit with confirm
 func _on_popup_confirmed(value : int):
 	print("exit with value {value}".format({"value": value}))
-	_ui_view.change_interactables_state(true)
 	
 	_on_play_confirmed(value)
 
@@ -80,8 +77,10 @@ func _on_popup_confirmed(value : int):
 func _on_play_confirmed(amount : int):
 	_ui_view.change_interactables_state(false)
 	print("Start Rolling {times} times!".format({"times":amount}))
-	_slot_view.start_spinning_columns(amount)
+	
+	_slot_view.start_spinning_columns(amount, _ui_view.get_bet_amount())
 
 
 func _on_slot_stoped():
+	print("slot stoped")
 	_ui_view.change_interactables_state(true)

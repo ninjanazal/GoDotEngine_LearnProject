@@ -10,8 +10,8 @@ export (float) var _column_width = 320.0
 export (float) var _column_margin = 5.0
 
 var _columns : Array = []
-var _current_sprinnings : int = 0
-
+var _current_sprinnings : int = 0 setget, get_spin_count
+var _current_bet : int = 0 setget, get_current_bet
 
 func _ready():
 	_generate_columns()
@@ -25,9 +25,6 @@ func _generate_columns():
 		current_column.init(Vector2(i * (_column_width + _column_margin),0),_column_width,item_list.get_group_array())
 
 # called for start spinning
-func start_spinning_columns(value : int):
-	_current_sprinnings = value
-	_slot_internal_spin_controller()
 
 func _slot_internal_spin_controller():
 	for column in _columns:
@@ -37,12 +34,25 @@ func _slot_internal_spin_controller():
 	emit_signal("slot_spining")
 	print("Slot Spining!")
 
+
 # wait for all columns to emit stop confirmation
 func _wait_all_columns_stop(callerInder : int):
 	for column in _columns:
 		if !column.is_stoped(): return
 	
-	print("All columns are stoped")
+	_current_sprinnings -= 1
+	print("All columns are stoped, emiting signal!")
+	emit_signal("slot_stoped")
+
+func get_spin_count() -> int: return _current_sprinnings
+
+func get_current_bet() -> int: return _current_bet
+
+func start_spinning_columns(value : int, betAmount : int):
+	_current_sprinnings = value
+	_current_bet = betAmount
+	_slot_internal_spin_controller()
+
 
 # Stop spinning with values
 func stop_slot_on(value : Array):

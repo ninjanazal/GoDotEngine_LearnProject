@@ -5,6 +5,8 @@ export (Resource) var _slot_group
 export (NodePath) var _slot_ui_path
 
 onready var _slot_ui := get_node(_slot_ui_path)
+onready var _player_ctrl := get_node("player_controller")
+onready var _ui_ctrl := get_node("ui_controller")
 
 var _slot_entrances : Array = []
 var _current_result : Array setget ,get_current_result
@@ -29,15 +31,24 @@ func _generate_slot_entrances(group : slot_group):
 
 # when the slot stated spinning
 func _on_slot_spinning():
+	_player_ctrl.change_credits(-_slot_ui.get_current_bet())
+	
 	yield(get_tree().create_timer(randf()*1.0 + 0.5),"timeout")
 	_slot_ui.stop_slot_on(_get_spin_result())
+	
+	_slot_ui.connect("slot_stoped",self,"_on_slot_stoped",[], CONNECT_ONESHOT)
 
 # get spin result combination
 func _get_spin_result() -> Array:
+	_current_result.clear()
 	for i in 3:
 		_current_result.append(_slot_entrances[randi() % _slot_entrances.size()])
 	print(GlobalFunctions.slot_item_to_string(_current_result))
 	return _current_result
+
+func _on_slot_stoped():
+	print("Slot stoped, calculating wins, current bet : {betVal}".format(
+		{"betVal":_slot_ui.get_current_bet()}))
 
 #get the current result
 func get_current_result() -> Array:
