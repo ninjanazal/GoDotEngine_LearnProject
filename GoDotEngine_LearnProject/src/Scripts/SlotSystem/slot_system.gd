@@ -3,6 +3,7 @@ class_name slot_system
 
 signal slot_spining
 signal slot_stoped
+signal completed
 
 export (Resource) var item_list
 export (PackedScene) var _column_actor
@@ -67,3 +68,7 @@ func slot_can_continue() -> bool:
 		_slot_internal_spin_controller()
 		return true
 	return false
+
+func display_multiplier(value : int, duration : float):
+	$Multiplier_Present.show_multiplier(value, duration)
+	emit_signal("completed")

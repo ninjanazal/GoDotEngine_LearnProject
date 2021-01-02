@@ -3,6 +3,8 @@ class_name game_controller
 
 export (Resource) var _slot_group
 export (NodePath) var _slot_ui_path
+export (float,0.5, 5, 0.1) var _win_duration
+export (float,0.5, 5, 0.1) var _lose_duration
 
 onready var _slot_ui := get_node(_slot_ui_path)
 onready var _player_ctrl := get_node("player_controller")
@@ -52,16 +54,18 @@ func _on_slot_stoped():
 	
 	var multiplier = 0
 	for i in 3:
-		multiplier += _slot_group.get_first_by_type(_current_result[0]).get_icon_multiplier() * _current_result.count(_current_result[i])
-
-	print(multiplier / 2)
+		multiplier += _slot_group.get_first_by_type(_current_result[i]).get_icon_multiplier() * _current_result.count(_current_result[i])
+	
 	multiplier = int(floor(multiplier / 2))
 	print("win value : {multi}".format({"multi":multiplier * _slot_ui.get_current_bet()}))
 	
 	_player_ctrl.change_credits(_slot_ui.get_current_bet() * multiplier)
 	_ui_ctrl.set_winned_value(_slot_ui.get_current_bet() * multiplier)
 	
-	yield(get_tree().create_timer(2.0),"timeout")
+	if multiplier == 0: 
+		yield(get_tree().create_timer(_lose_duration), "timeout")
+	else:
+		_slot_ui.display_multiplier(multiplier, _win_duration)
 	
 	_ui_ctrl.reset_winned_value()
 	if !_slot_ui.slot_can_continue():

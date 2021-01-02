@@ -5,7 +5,8 @@ export (NodePath) var cam_path = null
 var _cam_target : Position2D = null
 
 onready var _center_position = Vector2(
-	get_viewport().size.x * 0.5, get_viewport().size.y * 0.5)
+	ProjectSettings.get("display/window/size/width"), ProjectSettings.get("display/window/size/height")) \
+	* 0.5
 
 
 func _ready():
