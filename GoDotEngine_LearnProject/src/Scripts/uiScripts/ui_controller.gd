@@ -30,7 +30,7 @@ func on_credits_value_changed():
 	_ui_view.credits().set_text(str(_player_controller.get_current_credits()))
 	_ui_view.set_max_value(_player_controller.get_current_credits())
 	
-	if(_slot_view.get_spin_count() == 0):
+	if(!GlobalFunctions.is_spinning()):
 		_ui_view.disable_play_action(_player_controller.get_current_credits() == 0)
 
 
@@ -81,6 +81,7 @@ func _on_play_confirmed(amount : int):
 	_slot_view.start_spinning_columns(amount, _ui_view.get_bet_amount())
 
 func set_winned_value(var amount): _ui_view.set_win_amount(amount)
+
 func reset_winned_value(): _ui_view.reset_win_amount()
 
 func on_slot_stoped():

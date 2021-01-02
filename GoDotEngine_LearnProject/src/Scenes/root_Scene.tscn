@@ -29,6 +29,7 @@ script = ExtResource( 9 )
 _slot_group = ExtResource( 10 )
 _slot_ui_path = NodePath("../View/slot")
 _win_duration = 3.5
+_lose_duration = 1.0
 
 [node name="player_controller" type="Node" parent="Controller"]
 script = ExtResource( 5 )

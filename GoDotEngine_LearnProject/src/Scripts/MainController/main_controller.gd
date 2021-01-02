@@ -34,6 +34,7 @@ func _generate_slot_entrances(group : slot_group):
 
 # when the slot stated spinning
 func _on_slot_spinning():
+	GlobalFunctions.spinning_state(true)
 	_player_ctrl.change_credits(-_slot_ui.get_current_bet())
 	
 	yield(get_tree().create_timer(randf()*1.0 + 0.5),"timeout")
@@ -62,14 +63,23 @@ func _on_slot_stoped():
 	_player_ctrl.change_credits(_slot_ui.get_current_bet() * multiplier)
 	_ui_ctrl.set_winned_value(_slot_ui.get_current_bet() * multiplier)
 	
-	if multiplier == 0: 
-		yield(get_tree().create_timer(_lose_duration), "timeout")
-	else:
-		_slot_ui.display_multiplier(multiplier, _win_duration)
+	var result = _show_results(multiplier)
+	yield(result, "completed")
+	
+	GlobalFunctions.spinning_state(false)
 	
 	_ui_ctrl.reset_winned_value()
 	if !_slot_ui.slot_can_continue():
 		_ui_ctrl.on_slot_stoped()
+
+
+func _show_results(var multiplier):
+	if multiplier == 0: 
+		yield(get_tree().create_timer(_lose_duration), "timeout")
+	else: 
+		var called = _slot_ui.display_multiplier(multiplier,_win_duration)
+		yield(called,"completed")
+
 
 #get the current result
 func get_current_result() -> Array:

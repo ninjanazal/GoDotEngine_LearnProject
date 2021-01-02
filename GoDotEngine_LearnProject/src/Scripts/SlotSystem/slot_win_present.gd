@@ -9,5 +9,5 @@ func show_multiplier(var win_multi, duration : float):
 	while $CPUParticles2D.is_emitting():
 		yield(get_tree(),"idle_frame")
 	
-	yield(get_tree().create_timer($CPUParticles2D.get_lifetime()),"timeout")
 	$multiplier_text.set_visible(false)
+
