@@ -80,7 +80,9 @@ func _on_play_confirmed(amount : int):
 	
 	_slot_view.start_spinning_columns(amount, _ui_view.get_bet_amount())
 
+func set_winned_value(var amount): _ui_view.set_win_amount(amount)
+func reset_winned_value(): _ui_view.reset_win_amount()
 
-func _on_slot_stoped():
-	print("slot stoped")
+func on_slot_stoped():
+	print("ended")
 	_ui_view.change_interactables_state(true)

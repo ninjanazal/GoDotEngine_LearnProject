@@ -7,6 +7,9 @@ export (NodePath) var _play_btn = null setget ,play_btn
 export (NodePath) var _auto_play_btn = null setget ,auto_play_btn
 export (NodePath) var _add_credits_btn = null setget ,add_credits_btn
 export (NodePath) var _remove_credits_btn = null setget ,remove_credits_btn
+export (NodePath) var _win_value_babel = null
+
+onready var _win_value := get_node(_win_value_babel) as Label
 
 # Return ref to the creadits label
 func credits() -> Label:
@@ -29,6 +32,11 @@ func add_credits_btn() -> Button:
 
 func remove_credits_btn() -> Button:
 	return get_node(_remove_credits_btn) as Button
+
+func set_win_amount(amount : int):
+	_win_value.set_text(str(amount))
+
+func reset_win_amount(): _win_value.set_text("----")
 
 func get_bet_amount() -> int:
 	return floor(bet_amount().get_value()) as int

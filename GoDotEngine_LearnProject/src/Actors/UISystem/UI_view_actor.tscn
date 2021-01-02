@@ -19,6 +19,7 @@ _play_btn = NodePath("footer_container/h_box_container_footer/Play_ColorRect/HBo
 _auto_play_btn = NodePath("footer_container/h_box_container_footer/Play_ColorRect/HBoxContainer/VBoxContainer2/auto_play_btn")
 _add_credits_btn = NodePath("footer_container/h_box_container_footer/betgroup_color/h_box_container_center/inser_container/add_credits_btn")
 _remove_credits_btn = NodePath("footer_container/h_box_container_footer/betgroup_color/h_box_container_center/inser_container/remove_credits_btn")
+_win_value_babel = NodePath("footer_container/h_box_container_footer/betgroup_color/h_box_container_center/win_container/win_value_label")
 
 [node name="header_container" type="MarginContainer" parent="."]
 anchor_right = 1.0

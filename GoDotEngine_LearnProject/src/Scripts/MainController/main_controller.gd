@@ -16,6 +16,7 @@ func _ready():
 	_generate_slot_entrances(_slot_group)
 	
 	_slot_ui.connect("slot_spining",self,"_on_slot_spinning")
+	_slot_ui.connect("slot_stoped",self,"_on_slot_stoped")
 
 func _validate_resource():
 	_slot_group = _slot_group as slot_group
@@ -35,20 +36,36 @@ func _on_slot_spinning():
 	
 	yield(get_tree().create_timer(randf()*1.0 + 0.5),"timeout")
 	_slot_ui.stop_slot_on(_get_spin_result())
-	
-	_slot_ui.connect("slot_stoped",self,"_on_slot_stoped",[], CONNECT_ONESHOT)
 
 # get spin result combination
 func _get_spin_result() -> Array:
 	_current_result.clear()
 	for i in 3:
 		_current_result.append(_slot_entrances[randi() % _slot_entrances.size()])
-	print(GlobalFunctions.slot_item_to_string(_current_result))
 	return _current_result
 
+
 func _on_slot_stoped():
+	print(GlobalFunctions.slot_item_to_string(_current_result))
 	print("Slot stoped, calculating wins, current bet : {betVal}".format(
 		{"betVal":_slot_ui.get_current_bet()}))
+	
+	var multiplier = 0
+	for i in 3:
+		multiplier += _slot_group.get_first_by_type(_current_result[0]).get_icon_multiplier() * _current_result.count(_current_result[i])
+
+	print(multiplier / 2)
+	multiplier = int(floor(multiplier / 2))
+	print("win value : {multi}".format({"multi":multiplier * _slot_ui.get_current_bet()}))
+	
+	_player_ctrl.change_credits(_slot_ui.get_current_bet() * multiplier)
+	_ui_ctrl.set_winned_value(_slot_ui.get_current_bet() * multiplier)
+	
+	yield(get_tree().create_timer(2.0),"timeout")
+	
+	_ui_ctrl.reset_winned_value()
+	if !_slot_ui.slot_can_continue():
+		_ui_ctrl.on_slot_stoped()
 
 #get the current result
 func get_current_result() -> Array:

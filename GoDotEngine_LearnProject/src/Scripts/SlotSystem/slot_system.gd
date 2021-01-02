@@ -10,8 +10,8 @@ export (float) var _column_width = 320.0
 export (float) var _column_margin = 5.0
 
 var _columns : Array = []
-var _current_sprinnings : int = 0 setget, get_spin_count
-var _current_bet : int = 0 setget, get_current_bet
+var _current_sprinnings : int = 0 setget ,get_spin_count
+var _current_bet : int = 0 setget ,get_current_bet
 
 func _ready():
 	_generate_columns()
@@ -48,14 +48,22 @@ func get_spin_count() -> int: return _current_sprinnings
 
 func get_current_bet() -> int: return _current_bet
 
+func reset_bet_amout(): _current_bet = 0
+
 func start_spinning_columns(value : int, betAmount : int):
 	_current_sprinnings = value
 	_current_bet = betAmount
 	_slot_internal_spin_controller()
-
 
 # Stop spinning with values
 func stop_slot_on(value : Array):
 	for i in _columns.size():
 		_columns[i].stop_spinning_at(value[i])
 		_columns[i].connect("column_stoped" , self, "_wait_all_columns_stop", [i], CONNECT_ONESHOT)
+
+# continue if auto 
+func slot_can_continue() -> bool:
+	if _current_sprinnings > 0:
+		_slot_internal_spin_controller()
+		return true
+	return false
