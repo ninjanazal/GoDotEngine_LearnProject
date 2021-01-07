@@ -8,4 +8,8 @@ export_presets.cfg
 .mono/
 data_*/
 
+# Game builds
 Build/
+
+#Engine builds
+godot-customBuild/
