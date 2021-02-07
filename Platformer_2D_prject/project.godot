@@ -8,11 +8,20 @@
 
 config_version=4
 
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
 [application]
 
 config/name="Platformer2D Game"
 run/main_scene="res://Scenes/menu/menu_scene.tscn"
 config/icon="res://Inport/Sprites/go_big_logo/goBigStudio- logo.png"
+
+[autoload]
+
+FiniteSM="*res://src/Scripts/finitestateautomaton/finitestateautomaton.gd"
 
 [display]
 
@@ -23,8 +32,13 @@ window/size/test_height=360
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0.172549, 0.172549, 0.172549, 1 )
 environment/default_environment="res://default_env.tres"
